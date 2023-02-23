@@ -68,65 +68,47 @@ More details are given in the table.</p>
   </tr>
     <!-- 1 -->
   <tr>
-    <td>make default</td>
-    <td>down up login</td>
-    <td>Shortcut for make down up login</td>
-  </tr>
-    <!-- 2 -->
-  <tr>
     <td>make build</td>
     <td>docker-compose build</td>
     <td>Build the image</td>
   </tr>
-    <!-- 3 -->
+    <!-- 2 -->
   <tr>
     <td>make up</td>
     <td>docker-compose up -d</td>
     <td>Build and run the image</td>
   </tr>
-    <!-- 4 -->
+    <!-- 3 -->
   <tr>
     <td>make up_attached</td>
     <td>docker-compose up</td>
     <td>Bild and run the container, but keep attached</td>
   </tr>
-    <!-- 5 -->
+    <!-- 4 -->
   <tr>
     <td>make down</td>
     <td>docker-compose down</td>
     <td>Stop the container. Removes attached volumes</td>
   </tr>
-    <!-- 6 -->
-  <tr>
-    <td>make login</td>
-    <td>docker-compose exec app bash</td>
-    <td>Log into container</td>
-  </tr>
-    <!-- 7 -->
+    <!-- 5 -->
   <tr>
     <td>make logs</td>
     <td>docker-compose logs -f</td>
     <td>Attach to container logs</td>
   </tr>
-    <!-- 8 -->
+    <!-- 6 -->
   <tr>
     <td>make restart</td>
     <td>docker-compose restart</td>
     <td>Restart the container</td>
   </tr>
-    <!-- 9 -->
+    <!-- 7 -->
   <tr>
     <td>make delete</td>
     <td>docker image prune -a && docker image ls</td>
     <td>All images will be deleted and after that all images should be listed</td>
   </tr>
-    <!-- 10 -->
-  <tr>
-    <td>make test</td>
-    <td>sh test.sh</td>
-    <td>Test</td>
-  </tr>
-    <!-- 11 -->
+    <!-- 8 -->
   <tr>
     <td>make version</td>
     <td>docker-compose --version; docker --version</td>
