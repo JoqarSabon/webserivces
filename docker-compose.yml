@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+#Services 1 - PHP
+  code:
+    build:
+      context: .
+    container_name: php
+    networks:
+      test_net:
+        ipv4_address: 172.19.0.2
+    ports:
+      - "8080"
+      
+#Services 2 - Phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpymyadmin
+    networks:
+      test_net:
+        ipv4_address: 172.19.0.3
+    ports:
+      - "8081"
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: admin
+      PMA_PASSWORD: 123456
+
+#Services 3 - Maria DB
+  mariadb:
+    image: mariadb:10.6.7
+    container_name: mariadb
+    networks:
+      test_net:
+        ipv4_address: 172.19.0.4
+    ports:
+      - "3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+      MARIADB_USER: admin
+      MARIADB_PASSWORD: 123456
+      MARIADB_DATABASE: phpt
+
+#Networks
+networks:
+  test_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+
+#Volumes
+volumes:
+  code:
