@@ -19,20 +19,14 @@ version_d=docker --version
 help:
 	@echo 'If necessary insert a sudo command before make'
 	@echo ''
-	@echo 'make default     ->  down up login'
 	@echo 'make build       ->  docker-compose build'
 	@echo 'make up          ->  docker-compose up -d'
 	@echo 'make up_attached ->  docker-compose up'
 	@echo 'make down        ->  docker-compose down'
-	@echo 'make login       ->  docker-compose exec app bash'
 	@echo 'make logs        ->  docker-compose logs -f'
 	@echo 'make restart     ->  docker-compose restart'
 	@echo 'make delete      ->  docker image prune -a && docker image ls'
-	@echo 'make test        ->  sh test.sh'
 	@echo 'make version     ->  docker-compose --version; docker --version'
-
-#Shortcut for make down up login
-default: down up login
 
 #Build the image
 build:
@@ -50,10 +44,6 @@ up_attached: build
 down:
 	docker-compose down
 
-#Log into container
-login:
-	docker-compose exec app bash
-
 #Attach to container logs
 logs:
 	docker-compose logs -f
@@ -65,10 +55,6 @@ restart:
 #Delete all images and list image(testing if it worked)
 delete:
 	docker image prune -a && docker image ls
-
-#Test
-test:
-	sh test.sh
 
 #Show version of docker-compose and docker
 version:
